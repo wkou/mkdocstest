@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="./img/favicon.ico">
-        <title>My Docs</title>
+        <title>MkDocsでサイト作り</title>
         <link href="./css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="./css/font-awesome-4.5.0.css" rel="stylesheet">
         <link href="./css/base.css" rel="stylesheet">
@@ -31,11 +31,27 @@
 
         <!-- Collapsed navigation -->
         <div class="navbar-header">
-            <a class="navbar-brand" href=".">My Docs</a>
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href=".">MkDocsでサイト作り</a>
         </div>
 
         <!-- Expanded navigation -->
         <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href=".">サイトの作り方</a>
+                    </li>
+                    <li >
+                        <a href="index02/">mkdocsの編集方法</a>
+                    </li>
+                </ul>
 
             <ul class="nav navbar-nav navbar-right">
                 <li>
@@ -43,6 +59,16 @@
                         <i class="fa fa-search"></i> Search
                     </a>
                 </li>
+                    <li class="disabled">
+                        <a rel="next" >
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="index02/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
             </ul>
         </div>
     </div>
@@ -51,42 +77,99 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#mkdocs">MkDocs　使い方(見にくい)</a></li>
+        <li class="main active"><a href="#mkdocs">MkDocsでサイト作り</a></li>
+            <li><a href="#1">１回目</a></li>
+            <li><a href="#2">２回目以降</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="mkdocs">MkDocs　使い方(見にくい)</h1>
+<h1 id="mkdocs">MkDocsでサイト作り</h1>
+<h2 id="1">１回目</h2>
+<ol>
+<li>
 <p>Githubでレポジトリを作る</p>
+</li>
+<li>
 <p>Cloud9で作る（Pythonを指定）</p>
-<p>ファイルを消す</p>
+</li>
+<li>
+<p>余分なファイルを消す</p>
+</li>
+<li>
 <p>Open Terminal Here</p>
-<p>sudo pip install mkdocs　ダウンロードが始まる時間がかかる</p>
-<p>mkdocs new フォルダ名　index.htmlができる。</p>
-<p>cd フォルダ名</p>
-<p>mkdocs serve -a 0.0.0.0:8080  http://0.0.0.0:8080をクリックすることでサイトをブラウザで表示できる。</p>
-<p>いろいろ編集</p>
-<p>mkdocs build</p>
-<p>cd site</p>
-<p>git init</p>
-<p>git add .</p>
-<p>git commit -m “コッミトメッセージ”</p>
-<p>git remote add origin https://github.com/名前/レポジトリ名.git</p>
-<p>git push -u origin master</p>
-<p>git branch gh-pages　（ブランチを切る）</p>
-<p>git checkout gh-pages　（ブランチの移動）</p>
-<p>git add .</p>
-<p>git push -u origin gh-pages　ユーザネームとパスワード</p>
+</li>
+<li>
+<p>mkdocsのインストール</p>
+<pre><code>sudo pip install mkdocs
+</code></pre>
+</li>
+<li>
+<p>フォルダを作成し、ディレクトリを変更</p>
+<pre><code>mkdocs new フォルダ名    
+cd フォルダ名
+</code></pre>
+</li>
+<li>
+<p>サイトをランする。　
+http://0.0.0.0:8080をクリックすることでサイトをブラウザで表示できる。</p>
+<pre><code>mkdocs serve -a 0.0.0.0:8080
+</code></pre>
+</li>
+<li>
+<p>いろいろ編集(<a href="index02/">編集方法は別ページで</a>)</p>
+</li>
+<li>
+<p>htmlに変換</p>
+<pre><code>mkdocs build
+</code></pre>
+</li>
+<li>
+<p>GitHubにアップロード</p>
+<pre><code>cd site    
+git init    
+git add .    
+git commit -m “コッミトメッセージ”    
+git remote add origin https://github.com/名前/レポジトリ名.git    
+git push -u origin master    
+git branch gh-pages（ブランチを切る）    
+git checkout gh-pages（ブランチの移動）    
+git add .    
+git push -u origin gh-pages
+</code></pre>
 <p>サイト名はhttps://ユーザーネーム.github.io/レポジトリの名前/</p>
-<p>いろいろ編集２回目</p>
-<p>New Terminal</p>
-<p>cd フォルダ名</p>
-<p>mkdocs build</p>
-<p>cd site</p>
-<p>(git checkout gh-pages)</p>
-<p>git add .</p>
-<p>git commit -m “コミットメッセージ”</p>
-<p>git push -u origin gh-pages</p></div>
+</li>
+</ol>
+<p>GitHubへのアップロードは<code>mkdocs gh-deploy</code>のみで可能らしい（ためしてない）</p>
+<p><br>
+<br>
+<br>
+<br></p>
+<h2 id="2">２回目以降</h2>
+<ol>
+<li>
+<p>編集する</p>
+</li>
+<li>
+<p>新しくターミナルを開きディレクトリの変更</p>
+<pre><code>cd フォルダ名
+</code></pre>
+</li>
+<li>
+<p>htmlに変換</p>
+<pre><code>mkdocs build
+</code></pre>
+</li>
+<li>
+<p>GitHubにアップロード</p>
+<pre><code>cd site    
+(git checkout gh-pages)既にgh-pagesなら不要    
+git add .    
+git commit -m “コミットメッセージ”    
+git push -u origin gh-pages
+</code></pre>
+</li>
+</ol></div>
         </div>
 
         <footer class="col-md-12">
@@ -125,5 +208,5 @@
 
 <!--
 MkDocs version : 0.16.3
-Build Date UTC : 2017-04-20 14:35:54
+Build Date UTC : 2017-04-24 09:25:50
 -->
